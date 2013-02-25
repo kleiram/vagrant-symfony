@@ -9,3 +9,4 @@ exec { "apt-update":
 Exec["apt-update"] -> Package <| |>
 
 include curl
+include mysql
