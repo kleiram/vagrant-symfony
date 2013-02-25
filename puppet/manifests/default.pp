@@ -11,3 +11,4 @@ Exec["apt-update"] -> Package <| |>
 include curl
 include mysql
 include nginx
+include php5
