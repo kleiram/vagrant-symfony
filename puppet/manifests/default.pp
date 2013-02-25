@@ -12,3 +12,4 @@ include curl
 include mysql
 include nginx
 include php5
+include sqlite
