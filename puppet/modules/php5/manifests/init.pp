@@ -24,6 +24,12 @@ class php5 {
         notify => Service["php5-fpm"],
     }
 
+    exec { "update-fpm-user":
+        command => "sudo sed -i 's/user = www-data/user = vagrant/' /etc/php5/fpm/pool.d/www.conf",
+        require => Package["php5-fpm"],
+        notify => Service["php5-fpm"],
+    }
+
     file { "/etc/php5/conf.d/xdebug.ini":
         ensure => file,
         source => "puppet:///modules/php5/xdebug.ini",
