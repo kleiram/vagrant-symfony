@@ -3,6 +3,23 @@
 Provides a basic installation to get up and running with a Symfony2
 application quickly.
 
+## What's in the box?
+
+Firing up this VM will install the following packages:
+
+* cURL
+* MySQL (username: `root` and no password)
+* nginx
+* PHP-CLI
+* PHP-FPM
+* APC
+* PEAR
+* XDebug
+
+Additionaly, it will create a MySQL database called `symfony` if it doesn't
+exist so a clean Symfony2 installation should run right away (after you
+installed the dependencies, of course).
+
 ## Installation
 
 To use this configuration, you have to have [Vagrant](http://vagrantup.com)
@@ -38,7 +55,7 @@ and bask in the glory of Symfony!
 
 ### Note
 
-Note: If you're using Windows, you'll have to replace the following line in
+If you're using Windows, you'll have to replace the following line in
 the `Vagrantfile` because Windows doesn't support NFS:
 
 ```
@@ -49,7 +66,33 @@ with:
 
 ```
 config.vm.share_folder "v-root", "/vagrant", ".."
+
 ```
+
+### Note
+
+If you visit your site for the first time on `33.33.33.10` and you get the
+following message it is an easy fix:
+
+    You are not allowed to access this file. Check app_dev.php for more information.
+
+You'll have to edit the `web/app_dev.php` file and remove the following piece
+of code:
+
+```php
+if (isset($_SERVER['HTTP_CLIENT_IP'])
+    || isset($_SERVER['HTTP_X_FORWARDED_FOR'])
+    || !in_array(@$_SERVER['REMOTE_ADDR'], array('127.0.0.1', 'fe80::1', '::1'))
+) {
+    header('HTTP/1.0 403 Forbidden');
+    exit('You are not allowed to access this file. Check '.basename(__FILE__).' for more information.');
+}
+```
+
+## Updating
+
+You can always run a `git pull` in the `vagrant` folder in your project root to
+update the configuration.
 
 ## Versioning
 
