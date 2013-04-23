@@ -75,21 +75,6 @@ package { [
     notify => Service["php5-fpm"],
 }
 
-package { "build-essential":
-    ensure => installed,
-}
-
-exec { "pecl install mongo":
-    require => Package["build-essential"],
-}
-
-file { "/etc/php5/conf.d/mongo.ini":
-    ensure => file,
-    content => "extension=mongo.so",
-    require => [Package["php5-cli"], Package["php5-fpm"]],
-    notify => Service["php5-fpm"],
-}
-
 # Configure xdebug
 file { "/etc/php5/conf.d/xdebug.ini":
     ensure => file,
