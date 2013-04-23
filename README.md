@@ -15,7 +15,6 @@ Firing up this VM will install the following packages:
 * APC
 * PEAR
 * XDebug
-* MongoDB
 
 Additionaly, it will create a MySQL database called `symfony` if it doesn't
 exist so a clean Symfony2 installation should run right away (after you
