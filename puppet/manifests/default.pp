@@ -109,12 +109,12 @@ exec { "symfony-database":
 }
 
 exec { "symfony-access":
-    command => "mysql -u root -e 'GRANT ALL PRIVILEGES ON *.* TO `root`@`10.0.2.2` WITH GRANT OPTION; FLUSH PRIVILEGES;'",
+    command => "mysql -u root -e 'GRANT ALL PRIVILEGES ON *.* TO `root`@`%` WITH GRANT OPTION; FLUSH PRIVILEGES;'",
     require => Service["mysql"],
 }
 
 exec { "remote-access":
-    command => 'sed "s/bing-address/#bind-address/" -i /etc/mysql/my.cnf',
+    command => 'sed "s/bind-address/#bind-address/" -i /etc/mysql/my.cnf',
     require => Package["mysql-server"],
     notify => Service["mysql"],
 }
