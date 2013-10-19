@@ -36,7 +36,7 @@ php::module { 'xdebug':
 exec { 'install-composer':
     command => "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin",
     creates => "/usr/local/bin/composer.phar",
-    requires => Class['php'],
+    require => Class['php'],
 }
 
 # Install and configure MySQL
@@ -47,6 +47,27 @@ mysql::db { 'symfony':
     password    => '',
     host        => '%',
     grant       => ['ALL']
+}
+
+# Install nginx
+package { 'nginx':
+    ensure => present,
+}
+
+service { 'nginx':
+    ensure => running,
+}
+
+file { "/etc/nginx/sites-enabled/symfony.conf":
+    path => "/etc/nginx/sites-enabled/symfony.conf",
+    ensure => present,
+    source => "/tmp/vagrant-puppet/manifests/files/etc/nginx/conf.d/symfony.conf",
+    notify => Service["nginx"],
+    require => Package["nginx"],
+}
+
+file { "/etc/nginx/sites-enabled/default":
+    ensure => absent,
 }
 
 # Install small packages

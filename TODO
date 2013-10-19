@@ -4,4 +4,3 @@ Required additions/modifications for this project to be "complete":
 * Install and configure Memcached with PHP configuration
 * Install and configure Node.js
     - Install Bower
-* Install and configure nginx
