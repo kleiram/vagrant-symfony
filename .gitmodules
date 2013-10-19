@@ -1,6 +1,6 @@
 [submodule "puppet/modules/php"]
 	path = puppet/modules/php
 	url = git@github.com:saz/puppet-php.git
-[submodule "puppet/modules/mariadb"]
-	path = puppet/modules/mariadb
-	url = git@github.com:NeCTAR-RC/puppet-mariadb.git
+[submodule "puppet/modules/stdlib"]
+	path = puppet/modules/stdlib
+	url = git@github.com:puppetlabs/puppetlabs-stdlib.git
