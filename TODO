@@ -1,0 +1,13 @@
+Required additions/modifications for this project to be "complete":
+
+* Install Git
+* Install cURL
+* Install XDebug extension for PHP
+* Install Composer
+* Install and configure Gearman with PHP configuration
+* Install and configure Memcached with PHP configuration
+* Install and configure MariaDB
+* Install and configure SQLite
+* Install and configure Node.js
+    - Install Bower
+* Install and configure nginx
