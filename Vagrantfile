@@ -1,7 +1,7 @@
 Vagrant::Config.run do |config|
     # Configure the VM box to use
-    config.vm.box = 'precise32'
-    config.vm.box_url = 'http://files.vagrantup.com/precise32.box'
+    config.vm.box = 'ubuntu-server'
+    config.vm.box_url = 'http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210.box'
 
     # Configure network and port forwarding
     config.vm.network :hostonly, "33.33.33.10"
