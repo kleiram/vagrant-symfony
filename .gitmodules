@@ -10,3 +10,6 @@
 [submodule "puppet/modules/sqlite"]
 	path = puppet/modules/sqlite
 	url = git@github.com:puppetlabs/puppetlabs-sqlite
+[submodule "puppet/modules/git"]
+	path = puppet/modules/git
+	url = git@github.com:puppetlabs/puppetlabs-git.git
