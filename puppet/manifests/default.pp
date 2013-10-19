@@ -8,3 +8,19 @@ exec { "apt-update":
 }
 
 Exec["apt-update"] -> Package <| |>
+
+# Install and configure PHP
+class { 'php': }
+class { 'php::fpm': }
+
+php::fpm::pool { 'master': }
+
+# Install and configure PHP modules
+php::module { ['apc', 'pear']:
+    package_prefix  => 'php-',
+    notify          => Class['php::fpm::service'],
+}
+
+php::module { ['intl', 'mysql']:
+    notify          => Class['php::fpm::service'],
+}
