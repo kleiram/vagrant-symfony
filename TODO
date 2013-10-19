@@ -1,6 +1,5 @@
 Required additions/modifications for this project to be "complete":
 
-* Install XDebug extension for PHP
 * Install Composer
 * Install and configure Gearman with PHP configuration
 * Install and configure Memcached with PHP configuration

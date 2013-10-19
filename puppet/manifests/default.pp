@@ -25,6 +25,11 @@ php::module { ['intl', 'mysql']:
     notify          => Class['php::fpm::service'],
 }
 
+php::module { 'xdebug':
+    source          => '/tmp/vagrant-puppet/manifests/files/etc/php5/conf.d/xdebug.ini',
+    notify          => Class['php::fpm::service'],
+}
+
 # Install and configure MySQL
 class { 'mysql::server': }
 
