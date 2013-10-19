@@ -34,3 +34,8 @@ mysql::db { 'symfony':
     host        => '%',
     grant       => ['ALL']
 }
+
+# Install small packages
+class { 'git': }
+class { 'curl': }
+class { 'sqlite': }
