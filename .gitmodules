@@ -13,3 +13,6 @@
 [submodule "puppet/modules/git"]
 	path = puppet/modules/git
 	url = git@github.com:puppetlabs/puppetlabs-git.git
+[submodule "puppet/modules/curl"]
+	path = puppet/modules/curl
+	url = git@github.com:alphagov/puppet-curl.git
