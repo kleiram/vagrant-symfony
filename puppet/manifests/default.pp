@@ -13,7 +13,10 @@ Exec["apt-update"] -> Package <| |>
 class { 'php': }
 class { 'php::fpm': }
 
-php::fpm::pool { 'master': }
+php::fpm::pool { 'www':
+    user => "vagrant",
+    group => "vagrant",
+}
 
 # Install and configure PHP modules
 php::module { ['apc', 'pear']:
@@ -28,6 +31,12 @@ php::module { ['intl', 'mysql']:
 php::module { 'xdebug':
     source          => '/tmp/vagrant-puppet/manifests/files/etc/php5/conf.d/xdebug.ini',
     notify          => Class['php::fpm::service'],
+}
+
+exec { 'install-composer':
+    command => "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin",
+    creates => "/usr/local/bin/composer.phar",
+    requires => Class['php'],
 }
 
 # Install and configure MySQL
