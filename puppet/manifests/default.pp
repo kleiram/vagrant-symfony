@@ -24,3 +24,13 @@ php::module { ['apc', 'pear']:
 php::module { ['intl', 'mysql']:
     notify          => Class['php::fpm::service'],
 }
+
+# Install and configure MySQL
+class { 'mysql::server': }
+
+mysql::db { 'symfony':
+    user        => 'symfony',
+    password    => '',
+    host        => '%',
+    grant       => ['ALL']
+}
