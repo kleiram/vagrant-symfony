@@ -107,7 +107,7 @@ public function getLogDir()
 {
     return '/tmp/symfony/log/'. $this->environment;
 }
-``
+```
 
 This will change the location of the `cache` and `log` directories you normally
 find in the `app` directory of Symfony to the `/tmp/symfony` directory. This
