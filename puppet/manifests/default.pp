@@ -33,12 +33,6 @@ php::module { 'xdebug':
     notify          => Class['php::fpm::service'],
 }
 
-exec { 'install-composer':
-    command => "curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin",
-    creates => "/usr/local/bin/composer.phar",
-    require => Class['php'],
-}
-
 # Install and configure MySQL
 class { 'mysql::server': }
 
