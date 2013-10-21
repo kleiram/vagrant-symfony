@@ -11,6 +11,8 @@ that can be useful when developing for Symfony2:
 - Git
 - cURL
 - MySQL
+  * Username: `root`
+  * Password: empty
 - SQLite
 - nginx
 - PHP
