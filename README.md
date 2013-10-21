@@ -98,15 +98,15 @@ way to fix this is by changing the cache folder in the `app/AppKernel.php` file.
 At the end of the AppKernel class, add the following methods:
 
 ```php
-        public function getCacheDir()
-        {
-            return '/tmp/symfony/cache/'. $this->environment;
-        }
+public function getCacheDir()
+{
+    return '/tmp/symfony/cache/'. $this->environment;
+}
 
-        public function getLogDir()
-        {
-            return '/tmp/symfony/log/'. $this->environment;
-        }
+public function getLogDir()
+{
+    return '/tmp/symfony/log/'. $this->environment;
+}
 ``
 
 This will change the location of the `cache` and `log` directories you normally
