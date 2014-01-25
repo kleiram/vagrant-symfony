@@ -1,4 +1,5 @@
 Vagrant::Config.run do |config|
+
     # Configure the VM box to use
     config.vm.box = 'ubuntu-server'
     config.vm.box_url = 'http://puppet-vagrant-boxes.puppetlabs.com/ubuntu-server-12042-x64-vbox4210.box'
@@ -12,6 +13,7 @@ Vagrant::Config.run do |config|
     # Configure shared folders
     config.vm.share_folder "vagrant-root", "/vagrant", ".", :nfs => true
     config.vm.share_folder "www", "/var/www", "..", :nfs => true
+	config.vm.share_folder "puppet", "/tmp/vagrant-puppet", "puppet", :nfs => true
 
     # Configure provisioning
     config.vm.provision :puppet do |puppet|

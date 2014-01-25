@@ -30,14 +30,14 @@ Installation is as easy as cloning a GitHub project:
 
 ```
 $ cd your-symfony-project
-$ git clone --recursive git@github.com:kleiram/vagrant-symfony.git vagrant
+$ git clone --recursive https://github.com/kleiram/vagrant-symfony.git vagrant
 ```
 
 Or, if you're using Git already in your project, you can use it as a submodule:
 
 ```
 $ cd your-symfony-project
-$ git submodule add --recursive git@github.com:kleiram/vagrant-symfony.git vagrant
+$ git submodule add --recursive https://github.com/kleiram/vagrant-symfony.git vagrant
 ```
 
 After the project is added, you can start the environment like this:
