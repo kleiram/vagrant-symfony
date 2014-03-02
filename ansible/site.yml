@@ -30,3 +30,4 @@
     - mysql
     - mongo
     - git
+    - curl
