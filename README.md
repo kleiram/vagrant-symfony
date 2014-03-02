@@ -52,6 +52,12 @@ and additional applications/library. When the VM is done setting up, point
 your browser towards [http://33.33.33.10](http://33.33.33.10) and there you
 have it: Symfony2.
 
+### Ansible
+
+[Ansible](http://ansible.com) is used to provision the virtual machine, so you
+must have that installed. Follow the
+[installation instructions](http://docs.ansible.com/intro_installation.html#installation).
+
 #### Note
 
 If you're using Windows, you have to modify the `Vagrantfile` a little bit to
