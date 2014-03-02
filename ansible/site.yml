@@ -27,3 +27,4 @@
     - composer
     - phpunit
     - mysql
+    - mongo
