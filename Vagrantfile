@@ -5,23 +5,22 @@ Vagrant.configure("2") do |config|
 
     # Configure the network interfaces
     config.vm.network :private_network, ip:    "192.168.33.10"
-    config.vm.network :forwarded_port,  guest: 8080, host: 8080
+    config.vm.network :forwarded_port,  guest: 80,   host: 8080
     config.vm.network :forwarded_port,  guest: 8081, host: 8081
     config.vm.network :forwarded_port,  guest: 3306, host: 3306
 
     # Configure shared folders
-    config.vm.synced_folder ".",  "/vagrant"
-    config.vm.synced_folder "..", "/var/www"
+    config.vm.synced_folder ".",  "/vagrant", id: "vagrant-root", :nfs => true
+    config.vm.synced_folder "..", "/var/www", id: "application",  :nfs => true
 
-    # Configure VirtualBox
-    config.vm.provider :virtualbox do |provider|
-        provider.customize [ "modifyvm", :id, "--memory", "512" ]
+    # Configure VirtualBox environment
+    config.vm.provider :virtualbox do |v|
+        v.name = "symfony"
+        v.customize [ "modifyvm", :id, "--memory", 512 ]
     end
 
     # Provision the box
-    config.vm.provision :puppet do |puppet|
-        puppet.manifests_path   = "puppet/manifests"
-        puppet.manifest_file    = "site.pp"
-        puppet.module_path      = "puppet/modules"
+    config.vm.provision :ansible do |ansible|
+        ansible.playbook = "ansible/site.yml"
     end
 end
