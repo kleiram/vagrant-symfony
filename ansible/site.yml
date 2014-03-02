@@ -24,3 +24,4 @@
     - php5-common
     - composer
     - phpunit
+    - mysql
