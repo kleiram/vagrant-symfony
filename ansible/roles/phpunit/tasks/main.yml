@@ -5,4 +5,4 @@
 
 - name:    Install PHPUnit
   sudo:    yes
-  command: pear install pear.phpunit.de/PHPUnit
+  command: pear install pear.phpunit.de/PHPUnit creates=/usr/bin/phpunit
