@@ -1,0 +1,8 @@
+---
+- name:    Configure PEAR for PHPUnit
+  sudo:    yes
+  command: pear config-set auto_discover 1
+
+- name:    Install PHPUnit
+  sudo:    yes
+  command: pear install pear.phpunit.de/PHPUnit creates=/usr/bin/phpunit

@@ -1,0 +1,38 @@
+---
+- name: Add RabbitMQ repository
+  shell: echo 'deb http://www.rabbitmq.com/debian/ testing main' > /etc/apt/sources.list.d/rabbitmq.list creates=/etc/apt/sources.list.d/rabbitmq.list
+
+- name: Download RabbitMQ key
+  get_url: url=http://www.rabbitmq.com/rabbitmq-signing-key-public.asc dest=/tmp/rabbitmq-signing-key-public.asc
+
+- name: Add RabbitMQ key
+  sudo: yes
+  command: apt-key add /tmp/rabbitmq-signing-key-public.asc
+
+- name: Update apt again
+  sudo: yes
+  apt:  update_cache=yes
+
+- name: Install RabbitMQ
+  sudo: yes
+  apt:  pkg=rabbitmq-server state=latest
+
+- name: Enable RabbitMQ plugins
+  shell: rabbitmq-plugins enable rabbitmq_management
+
+- name: Add admin user
+  shell: rabbitmqctl add_user admin password
+  ignore_errors: true
+
+- name: Set admin user tags
+  shell: rabbitmqctl set_user_tags admin administrator
+  ignore_errors: true
+
+- name: Set admin user permissions
+  shell: rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"
+  ignore_errors: true
+
+- name: Delete guest user
+  shell: rabbitmqctl delete_user guest
+  notify: restart rabbitmq
+  ignore_errors: true

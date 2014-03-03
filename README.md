@@ -20,6 +20,7 @@ that can be useful when developing for Symfony2:
 - APC
 - PEAR
 - XDebug
+- RabbitMQ
 
 Additionally, it will create a MySQL database called `symfony` that a Symfony2
 application can connect to without any configuration.
@@ -30,14 +31,14 @@ Installation is as easy as cloning a GitHub project:
 
 ```
 $ cd your-symfony-project
-$ git clone --recursive https://github.com/kleiram/vagrant-symfony.git vagrant
+$ git clone https://github.com/kleiram/vagrant-symfony.git vagrant
 ```
 
 Or, if you're using Git already in your project, you can use it as a submodule:
 
 ```
 $ cd your-symfony-project
-$ git submodule add --recursive https://github.com/kleiram/vagrant-symfony.git vagrant
+$ git submodule add https://github.com/kleiram/vagrant-symfony.git vagrant
 ```
 
 After the project is added, you can start the environment like this:
@@ -49,8 +50,14 @@ $ vagrant up
 
 Starting the VM might take some time, since it will download the entire box
 and additional applications/library. When the VM is done setting up, point
-your browser towards [http://33.33.33.10](http://33.33.33.10) and there you
+your browser towards [http://192.168.33.10](http://192.168.33.10) and there you
 have it: Symfony2.
+
+### Ansible
+
+[Ansible](http://ansible.com) is used to provision the virtual machine, so you
+must have that installed. Follow the
+[installation instructions](http://docs.ansible.com/intro_installation.html#installation).
 
 #### Note
 
@@ -59,15 +66,15 @@ make it all work (since Windows doesn't support NFS). Replace the following
 lines in the Vagrantfile:
 
 ```ruby
-config.vm.share_folder "vagrant-root", "/vagrant", ".", :nfs => true
-config.vm.share_folder "www", "/var/www", "..", :nfs => true
+config.vm.synced_folder ".",  "/vagrant", id: "vagrant-root", :nfs => true
+config.vm.synced_folder "..", "/var/www", id: "application",  :nfs => true
 ```
 
 with:
 
 ```ruby
-config.vm.share_folder "vagrant-root", "/vagrant", "."
-config.vm.share_folder "www", "/var/www", ".."
+config.vm.synced_folder ".",  "/vagrant", id: "vagrant-root"
+config.vm.synced_folder "..", "/var/www", id: "application"
 ```
 
 ## Troubleshooting
@@ -120,10 +127,8 @@ the log from your host computer (the computer that's running Vagrant).
 
 The following things are additions I want to add to the project:
 
-- Gearman
 - Memcached
 - Node.js (with the Bower package)
-- ZeroMQ
 
 Feel free to add these components and create a pull request!
 
@@ -186,7 +191,7 @@ major version is incremented.
 ## License
 
 ```
-Copyright (c) 2013, Ramon Kleiss <ramon@cubilon.nl>
+Copyright (c) 2014, Ramon Kleiss <ramon@cubilon.nl>
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
