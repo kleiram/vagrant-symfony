@@ -33,3 +33,4 @@
     - curl
     - sqlite
     - wget
+    - rabbitmq
