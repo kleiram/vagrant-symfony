@@ -49,7 +49,7 @@ $ vagrant up
 
 Starting the VM might take some time, since it will download the entire box
 and additional applications/library. When the VM is done setting up, point
-your browser towards [http://33.33.33.10](http://33.33.33.10) and there you
+your browser towards [http://192.168.33.10](http://192.168.33.10) and there you
 have it: Symfony2.
 
 ### Ansible
