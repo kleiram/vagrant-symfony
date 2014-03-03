@@ -31,3 +31,4 @@
     - mongo
     - git
     - curl
+    - sqlite
