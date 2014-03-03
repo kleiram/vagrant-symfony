@@ -20,6 +20,7 @@ that can be useful when developing for Symfony2:
 - APC
 - PEAR
 - XDebug
+- RabbitMQ
 
 Additionally, it will create a MySQL database called `symfony` that a Symfony2
 application can connect to without any configuration.
@@ -126,10 +127,8 @@ the log from your host computer (the computer that's running Vagrant).
 
 The following things are additions I want to add to the project:
 
-- Gearman
 - Memcached
 - Node.js (with the Bower package)
-- ZeroMQ
 
 Feel free to add these components and create a pull request!
 
