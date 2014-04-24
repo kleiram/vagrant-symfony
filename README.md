@@ -25,7 +25,15 @@ that can be useful when developing for Symfony2:
 Additionally, it will create a MySQL database called `symfony` that a Symfony2
 application can connect to without any configuration.
 
-## Installation
+## Usage and requirements
+
+### Ansible
+
+[Ansible](http://ansible.com) is used to provision the virtual machine, so you
+must have that installed. Follow the
+[installation instructions](http://docs.ansible.com/intro_installation.html#installation).
+
+### Usage
 
 Installation is as easy as cloning a GitHub project:
 
@@ -52,12 +60,6 @@ Starting the VM might take some time, since it will download the entire box
 and additional applications/library. When the VM is done setting up, point
 your browser towards [http://192.168.33.10](http://192.168.33.10) and there you
 have it: Symfony2.
-
-### Ansible
-
-[Ansible](http://ansible.com) is used to provision the virtual machine, so you
-must have that installed. Follow the
-[installation instructions](http://docs.ansible.com/intro_installation.html#installation).
 
 #### Note
 
