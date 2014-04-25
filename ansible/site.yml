@@ -20,17 +20,18 @@
       - { name: "xhprof", package: "pecl.php.net/xhprof-beta" }
     php_ppa: php5
   roles:
-    - init
-    - nginx
-    - php5-fpm
-    - php5-cli
-    - php5-common
-    - composer
-    - phpunit
-    - mysql
-    - mongo
-    - git
-    - curl
-    - sqlite
-    - wget
-    - rabbitmq
+    # - init
+    # - nginx
+    # - php5-fpm
+    # - php5-cli
+    # - php5-common
+    # - composer
+    # - phpunit
+    # - mysql
+    # - mongo
+    # - git
+    # - curl
+    # - sqlite
+    # - wget
+    # - rabbitmq
+    - redis
