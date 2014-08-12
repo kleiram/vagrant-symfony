@@ -1,1 +1,0 @@
-extension = {{ item.name }}.so

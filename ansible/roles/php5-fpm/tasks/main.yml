@@ -1,4 +1,0 @@
----
-- name: Install PHP5-FPM
-  sudo: yes
-  apt:  package=php5-fpm state=latest

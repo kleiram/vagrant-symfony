@@ -22,6 +22,6 @@ Vagrant.configure("2") do |config|
 
     # Provision the box
     config.vm.provision :ansible do |ansible|
-        ansible.playbook = "ansible/site.yml"
+        ansible.playbook = "symfony.yml"
     end
 end
