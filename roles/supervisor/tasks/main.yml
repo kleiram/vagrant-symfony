@@ -1,0 +1,12 @@
+---
+- name: install supervisor
+  apt: pkg=supervisor state=latest
+
+- name: ensure supervisord configuration directory exists
+  file: path=/etc/supervisor/conf.d state=directory
+
+- name: ensure supervisord log directory exists
+  file: path=/var/log/supervisor state=directory
+
+- name: configure supervisord
+  copy: src=supervisord.conf dest=/etc/supervisord.conf
