@@ -4,3 +4,4 @@
   roles:
     - influxdb
     - supervisor
+    - nodejs
