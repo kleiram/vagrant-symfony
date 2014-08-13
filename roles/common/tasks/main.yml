@@ -1,0 +1,6 @@
+---
+- name: install common packages
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - git
+    - build-essential
