@@ -1,0 +1,9 @@
+---
+- name: download influxdb dotdeb
+  get_url: url=http://s3.amazonaws.com/influxdb/influxdb_latest_amd64.deb dest=/tmp
+
+- name: install influxdb from dotdeb
+  command: dpkg -i /tmp/influxdb_latest_amd64.deb
+
+- name: ensure influxdb service is running
+  service: name=influxdb state=started
