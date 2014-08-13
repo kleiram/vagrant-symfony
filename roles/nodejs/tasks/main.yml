@@ -1,3 +1,9 @@
 ---
 - name: install nodejs
   apt: pkg=nodejs state=latest
+
+- name: install npm
+  apt: pkg=npm state=latest
+
+- name: set npm registry url to not use https
+  command: npm config set registry http://registry.npmjs.org/
