@@ -8,19 +8,7 @@ This project provides a virtual environment for Symfony2 development using
 When you start Vagrant, this environment will provide the following tools
 that can be useful when developing for Symfony2:
 
-- Git
-- cURL
-- MySQL
-  * Username: `root`
-  * Password: empty
-- SQLite
-- nginx
-- PHP
-- PHP-FPM
-- APC
-- PEAR
-- XDebug
-- RabbitMQ
+- InfluxDB
 
 Additionally, it will create a MySQL database called `symfony` that a Symfony2
 application can connect to without any configuration.
