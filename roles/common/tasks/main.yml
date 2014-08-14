@@ -3,4 +3,6 @@
   apt: pkg={{ item }} state=latest
   with_items:
     - git
+    - curl
+    - python-setuptools
     - build-essential

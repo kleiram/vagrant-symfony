@@ -1,0 +1,17 @@
+---
+- name: download source
+  get_url: url=http://grafanarel.s3.amazonaws.com/grafana-1.6.1.tar.gz dest=/opt/grafana-1.6.1.tar.gz
+
+- name: unarchive source
+  command: tar xf grafana-1.6.1.tar.gz chdir=/opt
+
+- name: configure grafana
+  copy: src=config.js dest=/opt/grafana-1.6.1/config.js force=yes
+
+- name: configure nginx vhost
+  copy: src=nginx-grafana.conf dest=/etc/nginx/sites-available/grafana.conf
+
+- name: enable nginx vhost
+  file: src=/etc/nginx/sites-available/grafana.conf dest=/etc/nginx/sites-enabled/grafana.conf state=link
+  notify:
+    - reload nginx

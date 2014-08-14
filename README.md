@@ -8,7 +8,41 @@ This project provides a virtual environment for Symfony2 development using
 When you start Vagrant, this environment will provide the following tools
 that can be useful when developing for Symfony2:
 
-- InfluxDB
+__Common__:
+
+ - Node.js
+ - Supervisor
+ - nginx
+
+__Storage__:
+
+ - redis
+ - MongoDB
+ - MySQL
+ - SQLite
+
+__Statistic aggregation__:
+
+ - InfluxDB
+ - StatsD
+ - Grafana
+
+__PHP__:
+
+ - CLI
+ - FPM
+ - PEAR
+ - XDebug
+ - APC
+ - Packages:
+    - `curl`
+    - `mcrypt`
+    - `mysql`
+    - `redis`
+ - Extensions:
+    - `jsmin`
+    - `mongo`
+    - `redis`
 
 Additionally, it will create a MySQL database called `symfony` that a Symfony2
 application can connect to without any configuration.
@@ -113,14 +147,10 @@ find in the `app` directory of Symfony to the `/tmp/symfony` directory. This
 will speed up your site _a lot_. The downside is that you won't be able to check
 the log from your host computer (the computer that's running Vagrant).
 
-## To-do
+## Contributing
 
-The following things are additions I want to add to the project:
-
-- Memcached
-- Node.js (with the Bower package)
-
-Feel free to add these components and create a pull request!
+Contributions are very welcome! Just fork this repository, add the roles and
+create a pull request.
 
 ## Versioning
 

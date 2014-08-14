@@ -1,0 +1,14 @@
+---
+- name: install mysql
+  apt: pkg=mysql-server state=latest
+
+- name: allow access from anywhere
+  lineinfile: dest=/etc/mysql/my.cnf regexp="^bind-address" "line=#bind-address = 0.0.0.0"
+  notify:
+    - restart mysql
+
+- name: allow root from anywhere
+  command: mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%'; FLUSH PRIVILEGES;"
+
+- name: create symfony database
+  command: mysql -u root -e "CREATE DATABASE IF NOT EXISTS symfony;"

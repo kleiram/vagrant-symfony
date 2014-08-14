@@ -2,7 +2,27 @@
 - hosts: all
   sudo:  true
   roles:
+    # Common packages
     - common
-    - influxdb
-    - supervisor
     - nodejs
+    - supervisor
+    - role: nginx
+      nginx_sites: none
+
+    # Storage
+    - redis
+    - mongodb
+    - mysql
+    - sqlite
+
+    # Statistic aggregation
+    - influxdb
+    - statsd
+    - grafana
+
+    # PHP
+    - php5-common
+    - php5-fpm
+    - php5-cli
+    - composer
+    - symfony

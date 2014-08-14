@@ -1,0 +1,8 @@
+---
+- name: configure nginx
+  copy: src=symfony.conf dest=/etc/nginx/sites-available/symfony.conf
+
+- name: enable site
+  file: src=/etc/nginx/sites-available/symfony.conf dest=/etc/nginx/sites-enabled/symfony.conf state=link
+  notify:
+    - restart nginx

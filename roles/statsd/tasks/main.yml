@@ -1,0 +1,14 @@
+---
+- name: install statsd
+  git: repo=https://github.com/etsy/statsd.git dest=/opt/statsd
+
+- name: configure statsd
+  copy: src=config.js dest=/opt/statsd/config.js
+
+- name: install influxdb backend for statsd
+  npm: name=statsd-influxdb-backend path=/opt/statsd
+
+- name: configure supervisor for statsd
+  copy: src=supervisor-statsd.conf dest=/etc/supervisor/conf.d/statsd.conf
+  notify:
+    - reload supervisor

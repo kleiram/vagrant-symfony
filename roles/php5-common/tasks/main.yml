@@ -1,0 +1,25 @@
+---
+- name: add ppa repository
+  apt_repository: repo=ppa:ondrej/php5
+
+- name: install packages
+  apt: pkg={{ item.package }} state=latest
+  with_items: php_packages
+
+- name: enable packages
+  command: /usr/sbin/php5enmod {{ item.name }} creates=/etc/php5/cli/conf.d/20-{{ item.name }}.ini
+  with_items: php_packages
+  notify: restart php5-fpm
+
+- name: install extensions
+  shell: echo "\n" | /usr/bin/pecl install {{ item.package }} creates=/usr/lib/php5/20121212/{{ item.name }}.so
+  with_items: php_extensions
+
+- name: configure extensions
+  template: src=extension.j2 dest=/etc/php5/mods-available/{{ item.name }}.ini
+  with_items: php_extensions
+
+- name: enable extensions
+  command: /usr/sbin/php5enmod {{ item.name }} creates=/etc/php5/cli/conf.d/20-{{ item.name }}.ini
+  with_items: php_extensions
+  notify: restart php5-fpm

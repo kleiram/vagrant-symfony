@@ -1,9 +1,30 @@
 ---
 - name: download influxdb dotdeb
-  get_url: url=http://s3.amazonaws.com/influxdb/influxdb_latest_amd64.deb dest=/tmp force=no
+  get_url: url=http://s3.amazonaws.com/influxdb/influxdb_latest_amd64.deb dest=/tmp/influxdb_latest_amd64.deb force=no
 
 - name: install influxdb from dotdeb
   command: dpkg -i /tmp/influxdb_latest_amd64.deb
 
 - name: ensure influxdb service is running
   service: name=influxdb state=started
+
+- name: install httplib2
+  easy_install: name=httplib2
+
+- name: create symfony database
+  uri:
+    url: http://localhost:8086/db?u=root&p=root
+    body: '{"name":"symfony"}'
+    dest: /opt/influxdb/symfony
+    method: POST
+    creates: /opt/influxdb/symfony
+    status_code: 201
+
+- name: create grafana database
+  uri:
+    url: http://localhost:8086/db?u=root&p=root
+    body: '{"name":"grafana"}'
+    dest: /opt/influxdb/grafana
+    method: POST
+    creates: /opt/influxdb/grafana
+    status_code: 201

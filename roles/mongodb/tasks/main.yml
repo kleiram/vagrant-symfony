@@ -1,0 +1,8 @@
+---
+- name: install mongodb
+  apt: pkg=mongodb state=latest
+
+- name: allow access from anywhere
+  lineinfile: dest=/etc/mongodb.conf regexp="^bind_ip" line="#bind_ip = 127.0.0.1"
+  notify:
+    - restart mongodb

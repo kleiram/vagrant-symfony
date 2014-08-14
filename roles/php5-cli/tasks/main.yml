@@ -1,0 +1,3 @@
+---
+- name: install php5-cli
+  apt: pkg=php5-cli state=latest

@@ -1,0 +1,8 @@
+---
+- name: install redis
+  apt: pkg=redis-server state=latest
+
+- name: configure redis
+  copy: src=redis.conf dest=/etc/redis/redis.conf
+  notify:
+    - restart redis
