@@ -3,6 +3,10 @@ Vagrant.configure("2") do |config|
     config.vm.box       = 'precise64'
     config.vm.box_url   = 'http://files.vagrantup.com/precise64.box'
 
+    # Set VM name
+    config.vm.define File.expand_path("..", Dir.pwd).split("/")[-1] do |name|
+    end
+
     # Configure the network interfaces
     config.vm.network :private_network, ip:    "192.168.33.10"
     config.vm.network :forwarded_port,  guest: 80,    host: 8080
@@ -15,9 +19,9 @@ Vagrant.configure("2") do |config|
     config.vm.synced_folder "..", "/var/www", id: "application",  :nfs => true
 
     # Configure VirtualBox environment
-    config.vm.provider :virtualbox do |v|
-        v.name = File.expand_path("..", Dir.pwd)
-        v.customize [ "modifyvm", :id, "--memory", 512 ]
+    config.vm.provider :virtualbox do |vb|
+        vb.name = File.expand_path("..", Dir.pwd).split("/")[-1]
+        vb.customize [ "modifyvm", :id, "--memory", 512 ]
     end
 
     # Provision the box
