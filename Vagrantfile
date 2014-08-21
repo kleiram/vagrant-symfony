@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
 
     # Configure VirtualBox environment
     config.vm.provider :virtualbox do |v|
-        v.name = (0...8).map { (65 + rand(26)).chr }.join
+        v.name = File.expand_path("..", Dir.pwd)
         v.customize [ "modifyvm", :id, "--memory", 512 ]
     end
 
