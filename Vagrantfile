@@ -2,6 +2,7 @@ Vagrant.configure("2") do |config|
     # Configure the box to use
     config.vm.box       = 'precise64'
     config.vm.box_url   = 'http://files.vagrantup.com/precise64.box'
+    config.vm.hostname  = File.expand_path("..", Dir.pwd).split("/")[-1]
 
     # Set VM name
     config.vm.define File.expand_path("..", Dir.pwd).split("/")[-1] do |name|
