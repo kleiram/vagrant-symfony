@@ -77,6 +77,12 @@ and additional applications/library. When the VM is done setting up, point
 your browser towards [http://192.168.33.10](http://192.168.33.10) and there you
 have it: Symfony2.
 
+> _Note_: Vagrant sets the name and hostname of the VM to the name of the Symfony
+  root directory. This means that if your project path is `/home/foo/projects/example.com`
+  the hostname of the VM will be `example.com`. You can also use the
+  [`vagrant-hostsupdater`](https://github.com/cogitatio/vagrant-hostsupdater)
+  plugin to automatically modify your `/etc/hosts` file.
+
 #### Note
 
 If you're using Windows, you have to modify the `Vagrantfile` a little bit to
