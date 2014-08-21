@@ -15,11 +15,6 @@
     - mysql
     - sqlite
 
-    # Statistic aggregation
-    - influxdb
-    - statsd
-    - grafana
-
     # PHP
     - php5-common
     - php5-fpm

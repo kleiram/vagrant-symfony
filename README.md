@@ -21,12 +21,6 @@ __Storage__:
  - MySQL
  - SQLite
 
-__Statistic aggregation__:
-
- - InfluxDB
- - StatsD
- - Grafana
-
 __PHP__:
 
  - CLI
