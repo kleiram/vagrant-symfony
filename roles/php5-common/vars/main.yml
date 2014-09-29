@@ -6,7 +6,8 @@ php_packages:
   - { name: mcrypt, package: php5-mcrypt }
   - { name: mysql, package: php5-mysql }
   - { name: redis, package: php5-redis }
-  - { name: apc, package: php-apc }
+  - { name: apcu, package: php5-apcu }
+  - { name: memcache, package: php5-memcache }
 
 php_extensions:
   - { name: "jsmin", package: "pecl.php.net/jsmin-beta" }

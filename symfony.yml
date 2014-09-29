@@ -19,5 +19,6 @@
     - php5-common
     - php5-fpm
     - php5-cli
+    - memcached
     - composer
     - symfony
