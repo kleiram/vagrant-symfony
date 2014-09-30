@@ -5,6 +5,7 @@
     elasticsearch_timezone: "Europe/Berlin"
     elasticsearch_plugins:
         - { name: 'andrewvc/elastic-hammer' }
+        - { name: 'elasticsearch/marvel/latest' }
 
   roles:
     # Common packages
