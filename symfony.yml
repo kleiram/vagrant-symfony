@@ -1,6 +1,12 @@
 ---
 - hosts: all
   sudo:  true
+  vars:
+    elasticsearch_timezone: "Europe/Berlin"
+    elasticsearch_plugins:
+        - { name: 'andrewvc/elastic-hammer' }
+        - { name: 'elasticsearch/marvel/latest' }
+
   roles:
     # Common packages
     - common
@@ -14,10 +20,12 @@
     - mongodb
     - mysql
     - sqlite
+    - elasticsearch
 
     # PHP
     - php5-common
     - php5-fpm
     - php5-cli
+    - memcached
     - composer
     - symfony
