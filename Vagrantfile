@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
 
     # Configure shared folders
     config.vm.synced_folder ".",  "/vagrant", id: "vagrant-root", :nfs => true
-    config.vm.synced_folder "./www", "/var/www", id: "application",  :nfs => true
+    config.vm.synced_folder "..", "/var/www", id: "application",  :nfs => true
 
     # Configure VirtualBox environment
     config.vm.provider :virtualbox do |vb|
