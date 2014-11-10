@@ -1,6 +1,0 @@
-[submodule "roles/memcached"]
-	path = roles/memcached
-	url = https://github.com/bennojoy/memcached.git
-[submodule "roles/elasticsearch"]
-	path = roles/elasticsearch
-	url = https://github.com/Traackr/ansible-elasticsearch.git
