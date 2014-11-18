@@ -89,7 +89,7 @@ If you visit your site and you get the following error message:
 You are not allowed to access this file. Check app_dev.php for more information.
 ```
 
-You have to remove the following files from `web/app_dev.php`:
+You have to remove the following lines from `web/app_dev.php`:
 
 ```php
 if (isset($_SERVER['HTTP_CLIENT_IP'])
