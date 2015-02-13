@@ -1,8 +1,12 @@
 ---
-- name:    Configure PEAR for PHPUnit
-  sudo:    yes
-  command: pear config-set auto_discover 1
+- name:    Download PHPUnit
+  sudo:    no
+  command: wget https://phar.phpunit.de/phpunit.phar
 
-- name:    Install PHPUnit
+- name:    Add executable permissions to PHPUnit
+  sudo:    no
+  command: chmod +x phpunit.phar
+
+- name:    Move PHPunit to /usr/local/bin
   sudo:    yes
-  command: pear install pear.phpunit.de/PHPUnit creates=/usr/bin/phpunit
+  command: mv phpunit.phar /usr/local/bin/phpunit
