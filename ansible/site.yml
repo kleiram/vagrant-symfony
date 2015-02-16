@@ -14,6 +14,7 @@
       - { name: mysql, package: php5-mysql }
       - { name: redis, package: php5-redis }
       - { name: apc, package: php-apc }
+      - { name: memcached, package: php5-memcached }
     php_extensions:
       - { name: "jsmin", package: "pecl.php.net/jsmin-beta" }
       - { name: "mongo", package: "pecl.php.net/mongo" }
@@ -35,3 +36,4 @@
     - wget
     - rabbitmq
     - redis
+    - memcached
