@@ -1,7 +1,7 @@
 # Vagrant environment for Symfony2
 
 This project provides a virtual environment for Symfony2 development using
-[Vagrant](https://vagrantup.com).
+[Vagrant](https://www.vagrantup.com).
 
 ## What's in the box?
 
