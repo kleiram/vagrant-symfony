@@ -15,6 +15,7 @@
       - { name: redis, package: php5-redis }
       - { name: apc, package: php-apc }
       - { name: memcached, package: php5-memcached }
+      - { name: sqlite, package: php5-sqlite }
     php_extensions:
       - { name: "jsmin", package: "pecl.php.net/jsmin-beta" }
       - { name: "mongo", package: "pecl.php.net/mongo" }
