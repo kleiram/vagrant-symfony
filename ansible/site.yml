@@ -16,6 +16,7 @@
       - { name: apc, package: php-apc }
       - { name: memcached, package: php5-memcached }
       - { name: sqlite, package: php5-sqlite }
+      - { name: gd, package: php5-gd }
     php_extensions:
       - { name: "jsmin", package: "pecl.php.net/jsmin-beta" }
       - { name: "mongo", package: "pecl.php.net/mongo" }
