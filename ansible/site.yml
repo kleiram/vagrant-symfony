@@ -5,6 +5,7 @@
     doc_root: /var/www/web
     sys_packages:
       - mcrypt
+      - vim
     php_packages:
       - { name: dev, package: php5-dev }
       - { name: pear, package: php-pear }
@@ -22,6 +23,9 @@
       - { name: "mongo", package: "pecl.php.net/mongo" }
       - { name: "xhprof", package: "pecl.php.net/xhprof-beta" }
     php_ppa: php5
+    nodejs:
+      version: _5.x
+      packages: [casperjs, phantomjs, bower, gulp]
   roles:
     - init
     - nginx
@@ -39,3 +43,4 @@
     - rabbitmq
     - redis
     - memcached
+    - nodejs
