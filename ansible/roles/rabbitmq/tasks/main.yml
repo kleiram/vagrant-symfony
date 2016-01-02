@@ -1,4 +1,14 @@
 ---
+- name: Add Erlang OTP repository
+  shell: echo 'deb http://packages.erlang-solutions.com/ubuntu precise contrib' > /etc/apt/sources.list.d/erlang.list creates=/etc/apt/sources.list.d/erlang.list
+
+- name: Download Erlang OTP key
+  get_url: url=http://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc dest=/tmp/erlang-signing-key-public.asc
+
+- name: Add Erlang OTP key
+  sudo: yes
+  command: apt-key add /tmp/erlang-signing-key-public.asc
+
 - name: Add RabbitMQ repository
   shell: echo 'deb http://www.rabbitmq.com/debian/ testing main' > /etc/apt/sources.list.d/rabbitmq.list creates=/etc/apt/sources.list.d/rabbitmq.list
 
