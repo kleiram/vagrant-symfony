@@ -5,7 +5,7 @@
 
 - name: Allow access to MySQL from anywhere
   sudo: yes
-  lineinfile: dest=/etc/mysql/my.cnf regexp="^bind-address" "line=#bind-address = 0.0.0.0"
+  lineinfile: dest=/etc/mysql/my.cnf regexp="^bind-address" line="#bind-address = 0.0.0.0"
   notify: restart mysql
 
 - name: Add root user from anywhere to MySQL
