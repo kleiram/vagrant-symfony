@@ -5,5 +5,5 @@
 
 - name: Listen on all interfaces
   sudo: yes
-  lineinfile: dest=/etc/redis/redis.conf regexp="^bind" "line=#bind"
+  lineinfile: "dest=/etc/redis/redis.conf regexp='^bind' line='#bind'"
   notify: restart redis
