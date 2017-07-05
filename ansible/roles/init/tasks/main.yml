@@ -23,4 +23,4 @@
   - name: Install extra packages
     sudo: yes
     apt:  pkg={{ item }} state=latest
-    with_items: sys_packages
+    with_items: "{{ sys_packages }}"
